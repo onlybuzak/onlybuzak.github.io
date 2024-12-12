@@ -36,7 +36,15 @@
         }
 
         .content {
-            margin-top: 100px; /* To prevent content from being hidden under navbar */
+            margin-top: 100px;  /* To prevent content from being hidden under navbar */
+            max-width: 1000px;
+            width: 100%;        /* Allow content to take the full width but not exceed max-width */
+            display: flex;
+            flex-direction: column;
+            align-items: center;  /* Center the child elements horizontally */
+            justify-content: center;  /* Center the child elements vertically (if needed) */
+            margin-left: auto;   /* Horizontally center the content */
+            margin-right: auto;  /* Horizontally center the content */
         }
 
         .images {
@@ -63,6 +71,12 @@
         }
 
         .img img {
+            width: 100%;
+            height: auto;
+            margin: 0;
+        }
+
+        .img video {
             width: 100%;
             height: auto;
             margin: 0;
@@ -104,24 +118,32 @@
     </div>
     <div class="images">
         <div class="img">
-            <img src="https://onlybuzak.github.io/byebye.png" alt="Bye Bye">
+            <img src="byebye.png" alt="Bye Bye">
             <h2>Bye Bye</h2>
             <h3>Mewing streak</h3>
         </div>
         <div class="img">
-            <img src="https://onlybuzak.github.io/sandaly.jpg" alt="Sandały">
+            <img src="sandaly.jpg" alt="Sandały">
             <h2>Jezus Sandał</h2>
             <h3>Zakładając pełne buty bakterie i wiruse nie mogą opóścić waszego ciała przez stopy. - Mądry Człowiek</h3>
         </div>
         <div class="img">
-            <img src="https://onlybuzak.github.io/buzak flower.png" alt="Buzak ma kwiatka :(">
+            <img src="buzak flower.png" alt="Buzak ma kwiatka :(">
             <h2>Buzak Rizzler</h2>
             <h3>Shusshhh you beta. You have NO rizz!!!</h3>
         </div>
         <div class="img">
-            <img src="https://onlybuzak.github.io/stworzenie.jpg" alt="Sandały">
+            <img src="stworzenie.jpg" alt="Sandały">
             <h2>Stworzenie Buzaka</h2>
             <h3>Bóg mnie stworzył żeby hejtować Microsofta. "Nie che mi się uczyć w tej budzie już! Jebie to" - Mądry Człowiek</h3>
+        </div>
+        <div class="img">
+            <video controls>
+                <source src="laserbuzak.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <h2>Laser Buzak</h2>
+            <h3>Scary shit!!!</h3>
         </div>
     </div>
 </div>
