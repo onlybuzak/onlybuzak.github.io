@@ -46,6 +46,16 @@
             gap: 20px;
         }
 
+        .memeofday {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .meme {
+            
+        }
         .img {
             display: flex;
             flex-direction: column;
@@ -89,6 +99,9 @@
     </div>
 
     <div class="content">
+        <div class="memeofday">
+            
+        </div>
         <div class="images">
             <div class="img">
                 <img src="byebye.png" alt="Bye Bye">
@@ -112,4 +125,42 @@
             </div>
         </div>
     </div>
-</body></html>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    // Create an iframe to load the external site
+    const iframe = document.createElement("iframe");
+    iframe.src = "https://szkola.buz.info.pl";
+    iframe.style.display = "none";
+    document.body.appendChild(iframe);
+
+    iframe.onload = () => {
+        try {
+            // Access the image from the iframe's document
+            const externalImage = iframe.contentDocument.querySelector("img:not([class]):not([id])");
+
+            if (externalImage) {
+                // Create a new image element for the memeofday section
+                const memeOfDayContainer = document.querySelector(".memeofday");
+                const memeImage = document.createElement("img");
+
+                memeImage.src = externalImage.src; // Set the source of the new image
+                memeImage.alt = "Meme of the Day";
+                memeImage.style.width = "80%";
+                memeImage.style.boxShadow = "0 0 20px rgba(0, 0, 0, 0.3)";
+                memeImage.style.margin = "20px auto";
+
+                memeOfDayContainer.appendChild(memeImage); // Append it to the memeofday div
+            } else {
+                console.error("No image found on the external site");
+            }
+        } catch (error) {
+            console.error("Error accessing the external site's content:", error);
+        } finally {
+            // Clean up by removing the iframe
+            document.body.removeChild(iframe);
+        }
+    };
+    });
+</script>
+</html>
